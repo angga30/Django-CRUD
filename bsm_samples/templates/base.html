@@ -6,7 +6,7 @@
         input { min-height: 1.8em; } 
         body { padding-top: 50px; }
     </style> 
-    <link href="//bootswatch.com/flatly/bootstrap.min.css" rel="stylesheet"/>
+    <link href="//bootswatch.com/slate/bootstrap.min.css" rel="stylesheet"/>
 </head>
   <body>
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -21,7 +21,12 @@
         </ul>
       </div>
     </div>
-    <br><br><br><br>
+    <br><br>
+      <form type="get" action="." style="margin: 0">
+        <input  id="search_input" type="text" name="search_box"  placeholder="Search across all models..." >
+        <button id="search_submit" type="submit" >Search</button>
+      </form>
+    <br><br>
     <div class="container">
       <div class="hero-unit">
         {% block BSCT_MAIN %}

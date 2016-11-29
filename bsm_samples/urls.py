@@ -9,6 +9,7 @@ sequencing_center_patterns = URLGenerator(
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
+    url(r'^search/?$', views.search, name='search'),
     url('', include(sample_patterns)),
     url('', include(sequencing_center_patterns)),
     url('', include(project_patterns))
