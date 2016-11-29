@@ -1,37 +1,52 @@
 <html>
+
 <head>
     <title>BSM Web</title>
     <meta charset="utf-8">
-    <style>
-        body { 
-          padding-top: 50px; 
-        }
-        #search-form input {
-          padding: 5px;
-          width: 200px;
-          -webkit-transition: width 0.4s ease-in-out;
-          transition: width 0.4s ease-in-out;
-        }
-        #search-form input:focus {
-          width: 50%;
-        }
-        #result-table {
-          width: 50%;
-          text-align: center;
-        }
-    </style> 
-    <link href="//bootswatch.com/flatly/bootstrap.min.css" rel="stylesheet"/>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <link href="//bootswatch.com/readable/bootstrap.min.css" rel="stylesheet"/>
 </head>
+
+<style>
+  body { 
+    padding-top: 50px; 
+  }
+  #search-form input {
+    padding: 5px;
+    width: 200px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+  }
+  #search-form input:focus {
+    width: 50%;
+  }
+  #result-table {
+    width: 50%;
+    text-align: center;
+  }
+</style>
+
 <body>
   <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container">
+    <div class="container-fluid">
       <div class="navbar-header">
         <a class="navbar-brand" href="/">BSM Web</a>
       </div>
       <ul class="nav navbar-nav">
-          <li><a href="/sample">Samples</a></li>
-          <li><a href="/project">Projects</a></li>
-          <li><a href="/sequencingcenter">Sequencing Centers</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            Data
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="/casenumber">Case Numbers</a></li>
+            <li><a href="/diagnosis">Diagnoses</a></li>
+            <li><a href="/project">Projects</a></li>
+            <li><a href="/sample">Samples</a></li>
+            <li><a href="/sequencingcenter">Sequencing Centers</a></li>
+          </ul>
+        </li>
       </ul>
     </div>
   </div>
@@ -40,7 +55,7 @@
 
   <div align="center" class="hero-unit">
     <form id="search-form" type="get" action="/search">
-      <input  id="search_input" type="text" name="search_input"  placeholder="Search models..."/>
+      <input  id="search_input" type="text" name="search_input"  placeholder="Search..."/>
       <a href="#" class="btn btn-info" id="search_submit" onclick="document.getElementById('search-form').submit();">Search</a>
     </form>
 
@@ -60,7 +75,7 @@
         <tbody>
           {% for result in SEARCH_RESULTS %}
             <tr>
-              <th align="center"> <p>{{result.class}}: {{result.title}} </p> </th>
+              <th align="center"> <p> {{result.title}} </p> </th>
               <th align="center"> <a class="btn btn-info" href={{result.url}}>View</a></th>
             </tr>
           {% endfor %}
@@ -77,11 +92,11 @@
       {% endblock %}
     </div>
   </div>
-<hr>
+
+  <div class="footer navbar-fixed-bottom" align="center">
+    <p>&copy; Scott Ouellette 2016 </p>
+  </div>
 
 </body>
-<br><br><br><br>
-<div align="center">
-  <p>&copy; Scott Ouellette 2016 </p>
-</div>
+
 </html>
