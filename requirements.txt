@@ -1,3 +1,4 @@
 Django==1.10
 git+git://github.com/scottx611x/django-bootstrap-crud-templates@master#egg=django-bootstrap-crud-templates
+gunicorn==19.6.0
 whitenoise==3.2.2
