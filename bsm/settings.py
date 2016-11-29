@@ -27,6 +27,16 @@ STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'wn8w4fe9!-cojn-7#+3l1^h-aeim-ct3tpioy7x_br@p_l&7+h'
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'bsm_web',
+        'USER': 'bsm_web',
+        'PASSWORD': '',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
+}
 
 DATABASES['default'] = dj_database_url.config()
 
