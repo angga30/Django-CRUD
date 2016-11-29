@@ -28,7 +28,19 @@
         <button id="search_submit" type="submit" >Search</button>
       </form>
     </div>
+
+    <div align="center">
+    <ul>
+      {% for item in SEARCH_RESULTS %}
+        <li>
+          <p>item</p>
+        </li>
+      {% endfor %}
+      </ul>
+    </div>
+
     <br><br>
+    
     <div class="container">
       <div class="hero-unit">
         {% block BSCT_MAIN %}

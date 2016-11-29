@@ -13,4 +13,4 @@ def search(request):
 
         search_results = watson.search(search_query)
 
-        return HttpResponse(search_results)
+        return render(request, 'base.html', context={"SEARCH_RESULTS": search_results})
