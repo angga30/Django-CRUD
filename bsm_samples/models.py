@@ -25,6 +25,9 @@ class AbstractBase(models.Model):
             self.name
         )
 
+    def get_class_name(self):
+        return self.__class__.__name__
+
 
 class SequencingCenter(BSCTModelMixin, AbstractBase):
     """ A model Representation of a Sequencing Center """

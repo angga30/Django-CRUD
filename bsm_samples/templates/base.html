@@ -3,52 +3,82 @@
     <title>BSM Web</title>
     <meta charset="utf-8">
     <style>
-        input { min-height: 1.8em; } 
-        body { padding-top: 50px; }
+        body { 
+          padding-top: 50px; 
+        }
+        #search-form input {
+          padding: 5px;
+          width: 200px;
+          -webkit-transition: width 0.4s ease-in-out;
+          transition: width 0.4s ease-in-out;
+        }
+        #search-form input:focus {
+          width: 50%;
+        }
+        #result-table {
+          width: 50%;
+          text-align: center;
+        }
     </style> 
     <link href="//bootswatch.com/flatly/bootstrap.min.css" rel="stylesheet"/>
 </head>
-  <body>
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="/">BSM Web</a>
-        </div>
-        <ul class="nav navbar-nav">
-            <li><a href="/sample">Samples</a></li>
-            <li><a href="/project">Projects</a></li>
-            <li><a href="/sequencingcenter">Sequencing Centers</a></li>
-        </ul>
+<body>
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">BSM Web</a>
       </div>
-    </div>
-    <br><br>
-    <div align="center">
-      <form type="get" action="." style="margin: 0">
-        <input  id="search_input" type="text" name="search_input"  placeholder="Search models..." >
-        <button id="search_submit" type="submit" >Search</button>
-      </form>
-    </div>
-
-    <div align="center">
-    <ul>
-      {% for item in SEARCH_RESULTS %}
-        <li>
-          <p>item</p>
-        </li>
-      {% endfor %}
+      <ul class="nav navbar-nav">
+          <li><a href="/sample">Samples</a></li>
+          <li><a href="/project">Projects</a></li>
+          <li><a href="/sequencingcenter">Sequencing Centers</a></li>
       </ul>
     </div>
+  </div>
 
-    <br><br>
+  <br><br>
 
-    <div class="container">
-      <div class="hero-unit">
-        {% block BSCT_MAIN %}
-        {% endblock %}
-      </div>
-    </div>
+  <div align="center" class="hero-unit">
+    <form id="search-form" type="get" action="/search">
+      <input  id="search_input" type="text" name="search_input"  placeholder="Search models..."/>
+      <a href="#" class="btn btn-info" id="search_submit" onclick="document.getElementById('search-form').submit();">Search</a>
+    </form>
+
+  </div>
+
   <hr>
   
+  <div align="center" class="hero-unit">
+    {% if SEARCH_RESULTS %}
+      <table id="result-table" class="table table-striped">
+        <thead>
+          <tr>
+            <th> Result </th>
+            <th> Action </th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for result in SEARCH_RESULTS %}
+            <tr>
+              <th align="center"> <p>{{result.class}}: {{result.title}} </p> </th>
+              <th align="center"> <a class="btn btn-info" href={{result.url}}>View</a></th>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>     
+    {% endif %}
+  </div>
+  
+  <br><br>
+
+  <div class="container">
+    <div class="hero-unit">
+      {% block BSCT_MAIN %}
+      {% endblock %}
+    </div>
+  </div>
+<hr>
+
 </body>
 <br><br><br><br>
 <div align="center">
