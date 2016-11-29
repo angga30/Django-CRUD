@@ -19,8 +19,7 @@ def search(request):
                 {
                     "title": result.title,
                     "url": result.url,
-                    "pk": result.meta["pk"],
-                    "class": result.meta["get_class_name"]
+                    "pk": result.meta["pk"]
                 }
             )
 
