@@ -38,7 +38,7 @@ class Project(BSCTModelMixin, AbstractBase):
 
     # Many Projects can belong to a SequencingCenter
     sequencing_center = models.ForeignKey(
-        'SequencingCenter', blank=True, null=True, on_delete=models.CASCADE)
+        'SequencingCenter', on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = "Project"
@@ -56,8 +56,7 @@ class Sample(BSCTModelMixin, AbstractBase):
     )
 
     # Many Samples can belong to a Project
-    project = models.ForeignKey(
-        'Project', blank=True, null=True, on_delete=models.CASCADE)
+    project = models.ForeignKey('Project', on_delete=models.CASCADE)
 
     case_number = models.IntegerField(blank=False, null=False)
     bulk = models.BooleanField(default=False)
