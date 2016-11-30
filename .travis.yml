@@ -18,7 +18,8 @@ env:
   - DJANGO_SETTINGS_MODULE=bsm.settings
 
 before_script:
-  - psql -c 'create database travisci;' -U postgres
+  - createuser --createdb --no-superuser --no-createrole postgres
+  - createdb -O postgres travisci
 
 script: 
   - flake8
