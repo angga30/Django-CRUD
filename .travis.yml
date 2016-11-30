@@ -15,8 +15,7 @@ install:
   - python manage.py migrate --noinput
 
 before_script:
-  - createuser --createdb --no-superuser --no-createrole postgres
-  - createdb -O postgres travisci
+  - psql -c 'create database travisci;' -U postgres
 
 script: 
   - flake8
