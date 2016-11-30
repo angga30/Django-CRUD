@@ -14,6 +14,9 @@ install:
   - pip install -r requirements.txt --quiet
   - python manage.py migrate --noinput
 
+env:
+  - DJANGO_SETTINGS_MODULE=bsm.settings
+
 before_script:
   - psql -c 'create database travisci;' -U postgres
 
