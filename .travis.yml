@@ -15,8 +15,8 @@ install:
   - python manage.py migrate --noinput
 
 before_script:
-  - createuser --createdb --no-superuser --no-createrole postgres
-  - createdb -O postgres travisci
+  - createuser --createdb --no-superuser --no-createrole bsm_web
+  - createdb -O bsm_web bsm_web
 
 script: 
   - flake8
