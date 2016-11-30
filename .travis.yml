@@ -16,7 +16,7 @@ install:
 
 before_script:
   - createuser --createdb --no-superuser --no-createrole postgres
-  - createdb -O vagrant travisci
+  - createdb -O postgres travisci
 
 script: 
   - flake8
