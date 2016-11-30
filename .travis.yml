@@ -7,12 +7,11 @@ cache: pip
 services: postgresql
 
 python:
-  - "2.7"
-  - "3.4"
+  - 2.7
+  - 3.4
 
 install: 
   - pip install -r requirements.txt --quiet
-  - python manage.py migrate --noinput
 
 env:
   - DJANGO_SETTINGS_MODULE=bsm.settings
@@ -20,6 +19,7 @@ env:
 before_script:
   - createuser --createdb --no-superuser --no-createrole postgres
   - createdb -O postgres travisci
+  - python manage.py migrate --noinput
 
 script: 
   - flake8
