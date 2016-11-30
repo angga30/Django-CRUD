@@ -15,7 +15,9 @@ install:
   - python manage.py migrate --noinput
 
 before_script:
-  - psql -c "CREATE DATABASE travisci;" -U postgres
+  - createuser --createdb --no-superuser --no-createrole postgres
+  - createdb -O vagrant travisci
 
 script: 
+  - flake8
   - python manage.py test
