@@ -27,18 +27,27 @@ STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'wn8w4fe9!-cojn-7#+3l1^h-aeim-ct3tpioy7x_br@p_l&7+h'
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'bsm_web',
-        'USER': 'bsm_web',
-        'PASSWORD': '',
-        'HOST': '',
-        'PORT': '',
-    }
-}
+"""
+A basic database set-up for Travis CI.
+The set-up uses the 'TRAVIS' (== True) environment variable on Travis
+to detect the session, and changes the default database accordingly.
+Be mindful of where you place this code, as you may accidentally
+assign the default database to another configuration later in your code.
+"""
 
-DATABASES['default'] = dj_database_url.config()
+if 'TRAVIS' in os.environ:
+    DATABASES = {
+        'default': {
+            'ENGINE':   'django.db.backends.postgresql_psycopg2',
+            'NAME':     'travisci',
+            'USER':     'postgres',
+            'PASSWORD': '',
+            'HOST':     '',
+            'PORT':     '',
+        }
+    }
+else:
+    DATABASES['default'] = dj_database_url.config()
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
