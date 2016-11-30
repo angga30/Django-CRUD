@@ -51,6 +51,8 @@ class Diagnosis(AbstractBase, BSCTModelMixin):
 class Project(AbstractBase, BSCTModelMixin):
     """ A model Representation of a Project """
 
+    name = models.CharField(unique=True, blank=True, null=True, max_length=100)
+
     class Meta:
         verbose_name = "Project"
         verbose_name_plural = "Projects"
