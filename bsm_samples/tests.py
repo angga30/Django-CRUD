@@ -42,4 +42,7 @@ class SequencingCenterTestCase(TransactionTestCase):
     def test_verify_seqcenter_unique_name(self):
         """SequencingCenters should always have a unique name"""
         self.assertRaises(
-            IntegrityError, SequencingCenter.objects.create, name="Test SequencingCenter")
+            IntegrityError,
+            SequencingCenter.objects.create,
+            name="Test SequencingCenter"
+        )

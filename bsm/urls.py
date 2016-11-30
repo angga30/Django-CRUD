@@ -1,6 +1,6 @@
 from bsm_samples.urls import urlpatterns as bsm_samples_urls
 
-from django.conf.urls import include, url
+from django.conf.urls import url
 from django.contrib import admin
 
 
