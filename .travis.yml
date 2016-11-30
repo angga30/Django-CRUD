@@ -1,13 +1,23 @@
 language: python
 
+cache: pip
+
 services: postgresql
 
 python:
-  - 2.7.12
+  - "2.6"
+  - "2.7"
+  - "3.2"
+  - "3.3"
+  - "3.4"
+  - "3.5"
 
 install: 
-  - pip install -r requirements.txt
+  - pip install -r requirements.txt --quiet
   - python manage.py migrate --noinput
+
+before_script:
+  - psql -c "CREATE DATABASE mydb;" -U postgres
 
 script: 
   - python manage.py test
