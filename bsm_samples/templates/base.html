@@ -9,8 +9,8 @@
 </head>
 
 <style>
-  body { 
-    padding-top: 50px; 
+  body {
+    padding-top: 50px;
   }
   #search-form input {
     padding: 5px;
@@ -20,10 +20,6 @@
   }
   #search-form input:focus {
     width: 50%;
-  }
-  #result-table {
-    width: 50%;
-    text-align: center;
   }
 </style>
 
@@ -62,7 +58,7 @@
   </div>
 
   <hr>
-  
+
   <div align="center" class="hero-unit">
     {% if SEARCH_RESULTS %}
       <table id="result-table" class="table table-striped">
@@ -80,10 +76,10 @@
             </tr>
           {% endfor %}
         </tbody>
-      </table>     
+      </table>
     {% endif %}
   </div>
-  
+
   <br><br>
 
   <div class="container">
