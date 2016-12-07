@@ -79,6 +79,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_nose',
     'watson',
+    'whitenoise',
 ]
 
 MIDDLEWARE = [
