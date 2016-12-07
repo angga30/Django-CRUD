@@ -85,7 +85,7 @@
     {% if ON_HOMEPAGE %}
       <div class="absolute-center">
         <i class="fa fa-first-order fa-5x" aria-hidden="true"></i>
-        <br><br>
+        <br>
         <p>
           This is a Proof of Concept Data Management app for
           the Brain
@@ -93,15 +93,15 @@
         </p>
       </div>
     {% endif %}
-
-    <br><br>
-
-    <div class="container absolute-center">
-      <div class="hero-unit">
-        {% block BSCT_MAIN %}
-        {% endblock %}
-      </div>
-    </div>
+    <br><br><br>
+    {% if not SUPPRESS_MODEL_LISTING %}
+        <div class="container">
+          <div class="hero-unit">
+            {% block BSCT_MAIN %}
+            {% endblock %}
+          </div>
+        </div>
+      {% endif %}
 
   </body>
 {% endblock %}

@@ -8,7 +8,11 @@ def index(request):
         return render(
             request,
             'base.html',
-            context={"ON_HOMEPAGE": True})
+            context={
+                "ON_HOMEPAGE": True,
+                "SUPPRESS_MODEL_LISTING": True
+            }
+        )
 
 
 def search(request):
@@ -30,6 +34,8 @@ def search(request):
             request,
             'base.html',
             context={
-                "SEARCH_RESULTS": results, "SEARCH_QUERY": search_query
+                "SEARCH_RESULTS": results,
+                "SEARCH_QUERY": search_query,
+                "SUPPRESS_MODEL_LISTING": True
             }
         )
