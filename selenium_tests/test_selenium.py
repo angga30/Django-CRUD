@@ -1,7 +1,6 @@
 import os
-from urlparse import urljoin
-
 import pytest
+
 from .utils import assert_body_text
 
 base_url = os.environ['BASE_URL']
@@ -23,7 +22,7 @@ def test_base(selenium):
 
 
 def test_create_object(selenium):
-    selenium.get(urljoin(base_url, "sequencingcenter/create"))
+    selenium.get(base_url + "sequencingcenter/create")
 
     # Create a Sequencing Center
     seq_center_name = "Test Sequencing Center"
