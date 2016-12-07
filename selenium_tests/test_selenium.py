@@ -22,7 +22,7 @@ def test_base(selenium):
         "Somatic Mosaicism project and its collaborators.")
 
 
-def test_search_expect_results(selenium):
+def test_create_object(selenium):
     selenium.get(urljoin(base_url, "sequencingcenter/create"))
 
     # Create a Sequencing Center
@@ -30,20 +30,7 @@ def test_search_expect_results(selenium):
     selenium.find_element_by_id('id_name').send_keys(seq_center_name)
     selenium.find_element_by_xpath('//input[@type="submit"]').click()
 
-    search_term = "Sequencing"
-    selenium.find_element_by_id('search_input').send_keys(search_term)
-
     assert_body_text(
         selenium,
         "SequencingCenter: {}".format(seq_center_name),
-        "Showing 1 to 1 of 1 entries",
     )
-
-
-def test_search_expect_no_results(selenium):
-    selenium.get(base_url)
-
-    search_term = "Coffee is tasty"
-    selenium.find_element_by_id('search_input').send_keys(search_term)
-
-    assert_body_text(selenium, 'No results found for: {}'.format(search_term))
