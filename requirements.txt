@@ -1,5 +1,6 @@
 Django==1.10
 dj-database-url==0.4.1
+django-nose==1.4.4
 django-watson==1.2.4
 git+git://github.com/scottx611x/django-bootstrap-crud-templates@master#egg=django-bootstrap-crud-templates
 flake8==2.5.4
