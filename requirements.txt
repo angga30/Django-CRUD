@@ -5,4 +5,5 @@ git+git://github.com/scottx611x/django-bootstrap-crud-templates@master#egg=djang
 flake8==2.5.4
 gunicorn==19.6.0
 psycopg2==2.6.2
+pytest-selenium==1.7.0
 whitenoise==3.2.2
