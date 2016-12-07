@@ -64,6 +64,6 @@ script:
   # https://github.com/pytest-dev/pytest-selenium/issues/53
   - export SAUCELABS_USERNAME=$SAUCE_USERNAME SAUCELABS_API_KEY=$SAUCE_ACCESS_KEY
   - printenv | sort | grep SAUCE | perl -pne 's/=(...).+/=$1.../' # Debug helper
-  - pytest test_selenium.py --driver SauceLabs --capability browserName $BROWSER_NAME --capability version $BROWSER_VERSION --capability platform "$OPERATING_SYSTEM" --capability tunnelIdentifier $TRAVIS_JOB_NUMBER -r fE
+  - pytest test_selenium.py --driver SauceLabs --capability browserName $BROWSER_NAME --capability version $BROWSER_VERSION --capability platform "$OPERATING_SYSTEM" --capability tunnelIdentifier $TRAVIS_JOB_NUMBER
   - popd
   - echo 'travis_fold:end:selenium'
