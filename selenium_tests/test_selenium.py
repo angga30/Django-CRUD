@@ -41,6 +41,7 @@ def test_search_expect_results(selenium):
         "Showing 1 to 1 of 1 entries",
     )
 
+
 def test_search_expect_no_results(selenium):
     selenium.get(base_url)
 
