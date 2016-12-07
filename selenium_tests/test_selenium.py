@@ -22,7 +22,7 @@ def test_base(selenium):
 
 
 def test_create_object(selenium):
-    selenium.get(base_url + "sequencingcenter/create")
+    selenium.get(base_url + "/sequencingcenter/create")
 
     # Create a Sequencing Center
     seq_center_name = "Test Sequencing Center"
