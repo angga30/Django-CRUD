@@ -9,6 +9,7 @@ from selenium.common.exceptions import TimeoutException
 DEFAULT_WAIT = 5
 base_url = os.environ['BASE_URL']
 
+
 def assert_body_text(selenium, *search_texts):
     for search_text in search_texts:
         try:
