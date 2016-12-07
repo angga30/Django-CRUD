@@ -4,7 +4,11 @@ from django.shortcuts import render
 
 
 def index(request):
-    return render(request, 'base.html')
+    if request.method == 'GET':
+        return render(
+            request,
+            'base.html',
+            context={"ON_HOMEPAGE": True})
 
 
 def search(request):
@@ -22,11 +26,10 @@ def search(request):
                     "pk": result.meta["pk"]
                 }
             )
-
         return render(
             request,
             'base.html',
             context={
-                "SEARCH_RESULTS": results
+                "SEARCH_RESULTS": results, "SEARCH_QUERY": search_query
             }
         )
