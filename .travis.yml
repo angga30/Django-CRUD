@@ -1,4 +1,4 @@
-# NOTE: Saucelabs's free open source option only allows for 5 conncurrent jobs on Travis CI
+# NOTE: Saucelabs's free open source option only allows for 4 conncurrent jobs on Travis CI
 
 # Encrypted values for SAUCE_USERNAME and SAUCE_ACCESS_KEY
 secure: "L5BjG8/6TSVEfNloYDRrgAncUkTSkEYx8d8GtbmV7lko079p1eSOGAiJ7aJwnVeuYaoBdxwO6hmoxePfoyL4wFuPja5Eh5pVIhHxGjS0JZe+EjI9Fo7EIq1pOR/OiI/+zL9uSNWPmJ7zCjq77DbMdwVP/3RMWxHBm11RNuhRk7deLZwfNzEerrw/fSpuhtNRmBL1ASgQrivlmoPjd5ylcPFg25MU9l+WlElObJH5nJqYUP+AG7RNGaaauuMh+Hl7+Fkf3C6C+wm+OZy2DF2Pr7m+zP7B6rrhqaU0Oz0Mm+TiETt07n8xj4IxV6uduyX/RqS8BbNUDZRcubJ6Rzv6iY+DPfpTa7tQFtzIk0S3G3lw712rx/ycIBIWAqJCPlt2zhC2m5yHQIAualM7GHPGBQ8/CVmlWQp+ypywJOcrH8KTukpUQTGld1S96tiXirgtJbV3S0qtfTkwtY9ey2grcvowux+TH7wdfLk7EnY2w5LGIbEz6yn0PgMPzLQ0d8UUU+1kSwIhQI4TuuO5nNBO9QgIdtosT4Ss5maX16fX3BUzcvDrdBnIpnzeDrPIDZsPgFUyVD9OHxnUDxjzsx5C4eekJdwEF6pV+EprRk5APCnxL2k/Eujsc0t4zdE/6F4ukt7y6fpCeqP+XwpfRDNUnBFGJMLCw21NmtBEKYGIA6E="
@@ -51,7 +51,7 @@ script:
   - echo 'travis_fold:end:flake8'
 
   - echo 'travis_fold:start:django_tests'
-  - python manage.py test --exclude-tag selenium_tests/*
+  - python manage.py test
   - echo 'travis_fold:end:django_tests'
 
   - echo 'travis_fold:start:selenium'
@@ -66,6 +66,6 @@ script:
   # https://github.com/pytest-dev/pytest-selenium/issues/53
   - export SAUCELABS_USERNAME=$SAUCE_USERNAME SAUCELABS_API_KEY=$SAUCE_ACCESS_KEY
   - printenv | sort | grep SAUCE | perl -pne 's/=(...).+/=$1.../' # Debug helper
-  - pytest --driver SauceLabs --capability browserName $BROWSER_NAME --capability version $BROWSER_VERSION --capability platform "$OPERATING_SYSTEM" --capability tunnelIdentifier $TRAVIS_JOB_NUMBER -r fE
+  - pytest -k selenium_ --driver SauceLabs --capability browserName $BROWSER_NAME --capability version $BROWSER_VERSION --capability platform "$OPERATING_SYSTEM" --capability tunnelIdentifier $TRAVIS_JOB_NUMBER -r fE
   - popd
   - echo 'travis_fold:end:selenium'
