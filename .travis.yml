@@ -6,7 +6,8 @@ cache: pip
 
 addons:
   sauce_connect: true
-
+  # username and access_key provided as environment variables in travis config
+  
 services: postgresql
 
 python:
