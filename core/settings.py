@@ -33,12 +33,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_nose',
     'watson',
-    'whitenoise',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -112,5 +110,3 @@ STATICFILES_DIRS = (
 )
 # Use django-nose as a test runner
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
-
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'

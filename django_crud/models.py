@@ -34,15 +34,5 @@ class Item(AbstractBase, BSCTModelMixin):
     name = models.CharField(unique=True, max_length=100)
 
     class Meta:
-        verbose_name = "Item"
-        verbose_name_plural = "Items"
-
-
-class SubItem(AbstractBase, BSCTModelMixin):
-    """ A model Representation of a Sub-Item """
-
-    item = models.ForeignKey(Item)
-
-    class Meta:
-        verbose_name = "SubItem"
-        verbose_name_plural = "SubItems"
+        verbose_name = "item"
+        verbose_name_plural = "items"
