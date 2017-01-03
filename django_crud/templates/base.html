@@ -2,7 +2,7 @@
 {% load static %}
 
 <head>
-  {% block title %}<title>BSM Web</title>{% endblock %}
+  {% block title %}<title>Django CRUD App</title>{% endblock %}
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/png" href="{% static "images/favicon.ico" %}"/>
     <link href="{% static "css/styles.css" %}" rel="stylesheet"/>
@@ -22,7 +22,7 @@
         <div class="navbar-header">
           <a class="navbar-brand" href="/">
             <i class="fa fa-first-order" aria-hidden="true"></i>
-            &nbsp;BSM Web
+            &nbsp;Django CRUD app
           </a>
         </div>
         <ul class="nav navbar-nav">
@@ -32,11 +32,8 @@
               <span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
-              <li><a href="/casenumber">Case Numbers</a></li>
-              <li><a href="/diagnosis">Diagnoses</a></li>
-              <li><a href="/project">Projects</a></li>
-              <li><a href="/sample">Samples</a></li>
-              <li><a href="/sequencingcenter">Sequencing Centers</a></li>
+              <li><a href="/item">Items</a></li>
+              <li><a href="/subitem">SubItems</a></li>
             </ul>
           </li>
         </ul>
@@ -87,9 +84,7 @@
         <i class="fa fa-first-order fa-5x" aria-hidden="true"></i>
         <br>
         <p>
-          This is a Proof of Concept Data Management app for
-          the Brain
-          Somatic Mosaicism project and its collaborators.
+          This is a Django-based web app that allows for CRUD operations.
         </p>
       </div>
     {% endif %}
