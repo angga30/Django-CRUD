@@ -1,4 +1,4 @@
-# Django CRUD: <img src="https://travis-ci.org/scottx611x/bsm_web.svg?branch=master"/> 
+# Django CRUD
 
 ### A basic Django CRUD app.
 
