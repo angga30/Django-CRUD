@@ -1,6 +1,6 @@
-# bsm_web: <img src="https://travis-ci.org/scottx611x/bsm_web.svg?branch=master"/> [![Sauce Test Status](https://saucelabs.com/buildstatus/scottx611x)](https://saucelabs.com/u/scottx611x)
+# Django CRUD: <img src="https://travis-ci.org/scottx611x/bsm_web.svg?branch=master"/> 
 
-### A basic Django CRUD app to keep track of BSM Project Sample data.
+### A basic Django CRUD app.
 
 ## Prereqs:
 - `git`
@@ -11,7 +11,7 @@
 
 ## Installation:
 - `mkvirtualenv bsm && workon bsm` 
-- `git clone https://github.com/scottx611x/bsm_web.git && cd bsm_web`
+- `git clone https://github.com/scottx611x/Django-CRUD.git && cd Django-CRUD`
 - `pip install -r requirements.txt`
 - `python manage.py migrate`
 - `python manage.py runserver`
