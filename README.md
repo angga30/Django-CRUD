@@ -10,7 +10,7 @@
 - `virtualenvwrapper`
 
 ## Installation:
-- `mkvirtualenv core && workon core` 
+- `mkvirtualenv Django-CRUD && workon Django-CRUD` (optional)
 - `git clone https://github.com/scottx611x/Django-CRUD.git && cd Django-CRUD`
 - `pip install -r requirements.txt`
 - `python manage.py migrate`
